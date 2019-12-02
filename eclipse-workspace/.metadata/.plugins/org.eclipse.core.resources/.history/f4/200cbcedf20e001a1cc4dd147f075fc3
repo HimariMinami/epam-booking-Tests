@@ -1,0 +1,10 @@
+package first_test_booking;
+
+public class FirstBookingTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,7 @@
+package accommodations;
+
+public class BookingTest {
+
+	private static final String B_URL = "https://www.booking.com/";
+	
+}

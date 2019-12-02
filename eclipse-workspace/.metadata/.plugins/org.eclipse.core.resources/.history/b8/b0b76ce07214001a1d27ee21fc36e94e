@@ -1,0 +1,23 @@
+package accommodations;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class BookingMainPage {
+	@FindBy (className = "sb-searchbox__button")
+	private WebElement accomodationSearchBtn;
+	
+/*	public BookingMainPage name(WebDriver driver, Class  )
+	{
+		PageFactory.initElements(driver);
+	}
+*/	
+	public BookingAccomodationsPage openAccomodationsPage()
+	{
+		accomodationSearchBtn.click();
+		return new BookingAccomodationsPage();
+	}
+	
+}

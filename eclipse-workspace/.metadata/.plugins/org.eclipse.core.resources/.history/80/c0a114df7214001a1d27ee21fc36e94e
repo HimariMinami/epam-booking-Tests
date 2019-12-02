@@ -1,0 +1,7 @@
+package accommodations;
+
+public class BookingAccomodationsPage {
+
+	@FindBy
+	private static final String 
+}

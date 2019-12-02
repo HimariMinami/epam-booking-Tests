@@ -1,0 +1,106 @@
+package accommodations;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class BookingTest {
+
+	private static final String BOOKING_URL = "https://www.booking.com/";
+	private static final String DESTINATION_1 = "Литва";
+	
+	private WebDriver driver;
+	
+	@BeforeClass(description = "Start browser!")
+	public void startBrowser()
+	{
+		driver = new FirefoxDriver();
+		driver.get(BOOKING_URL);
+	}
+	
+	@BeforeClass(dependsOnMethods = "startBrowser", description = "Add implicite wait and maximize window")
+	public void addImplicitly()
+	{
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		// Maximize browser window
+		driver.manage().window().maximize();
+	}
+	
+	@Test(description = "")
+	public void abc()
+	{
+		//Open ...
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPage(DESTINATION_1);
+		
+		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class).townNumIsCorrect(driver), "The number of towns is not correct!");
+	}
+	
+	@Test(description = "")
+	public void abc1()
+	{
+		// Найти отели на неделю в Литве, отфильтровать поиск для двух городов: Вильнюс и Клайпеда.
+		// После фильтрации на 1 странице поиска должно отображаться как минимум по два найденных жилья для каждого города.
+		PageFactory.initElements(driver, BookingMainPage.class);
+		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationCity(driver);
+	}
+	
+	@Test(description = "")
+	public void abc2()
+	{
+		//Open ...
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPage(DESTINATION_1);
+	
+		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class), "Not correct!");
+	}
+	
+	@Test(description = "")
+	public void abc3()
+	{
+		//Open ...
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPage(DESTINATION_1);
+	
+		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class), "Not correct!");
+	}
+	
+	@Test(description = "")
+	public void abc4()
+	{
+		//Open ...
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPage(DESTINATION_1);
+	
+		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class), "Not correct!");
+	}
+	
+	@Test(description = "")
+	public void abc5()
+	{
+		//Open ...
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPage(DESTINATION_1);
+	
+		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class), "Not correct!");
+	}
+	
+	@Test(description = "")
+	public void abc6()
+	{
+		//Open ...
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPage(DESTINATION_1);
+	
+		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class), "Not correct!");
+	}
+	
+	@AfterClass(description = "Stop Browser")
+	public void stopBrowser()
+	{
+		driver.quit();
+	}
+}
