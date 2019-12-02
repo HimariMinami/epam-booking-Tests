@@ -1,0 +1,22 @@
+package accommodations;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingAccomodationPage {
+
+	@FindBy (xpath  = "//table[@id = \"hprt-table\"]//tbody/tr[1]/td[5]//select")
+	private WebElement selectRoomCmbbox;
+	
+	@FindBy (xpath  = "//table[@id = \"hprt-table\"]//tbody/tr[1]/td[5]//select/option[4]")
+	private WebElement selectRoomCmbbox3;
+	
+	public void accomodationSelectRoom(WebDriver driver, int num)
+	{
+		selectRoomCmbbox.click();
+		Assert.assertEquals(num, selectRoomCmbbox3.getText(), "The place header is not correct!");
+		
+	}
+}

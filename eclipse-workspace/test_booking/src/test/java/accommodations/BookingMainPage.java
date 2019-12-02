@@ -1,9 +1,7 @@
 package accommodations;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class BookingMainPage {
 	@FindBy (className = "sb-searchbox__button")
@@ -18,17 +16,23 @@ public class BookingMainPage {
 	@FindBy (xpath = "//div/div[1]/table[1]//tr[5]/td[@class=\"bui-calendar__date\"][1]")
 	private WebElement dataFieldCheckIn;
 	
-	@FindBy (xpath = "//div/div[1]/table[1]//tr[5]/td[@class=\"bui-calendar__date\"][7]")
+	@FindBy (xpath = "//div/div[1]/table[1]//tr[5]/td[@class=\"bui-calendar__date\"][6]")
 	private WebElement dataFieldCheckOut;
 	
 	@FindBy (id = "xp__guests__toggle")
 	private WebElement numGuestsInput;
 	
 	@FindBy (xpath = "//div[contains(@class, \"sb-group__field-adults\")]//button[1]/span[@class=\"bui-button__text\"]")
-	private WebElement numGuestsBtnSubtract;
+	private WebElement numAdultsBtnSubtract;
 	
 	@FindBy (xpath = "//div[contains(@class, \"sb-group__field-adults\")]//button[2]/span[@class=\"bui-button__text\"]")
-	private WebElement numGuestsBtnAdd;
+	private WebElement numAdultsBtnAdd;
+	
+	@FindBy (xpath = "//div[contains(@class, \"sb-group-children\")]//button[2]/span[@class=\"bui-button__text\"]")
+	private WebElement numCldrnBtnAdd;
+	
+	@FindBy (xpath = "//div[contains(@class, \"sb-group__field-rooms\")]//button[2]/span[@class=\"bui-button__text\"]")
+	private WebElement numRoomsAdd;
 	
 	@FindBy (xpath = "//div[2]/label[@class=\"bui-checkbox__label\"]")
 	private WebElement workCheckbox;
@@ -38,7 +42,7 @@ public class BookingMainPage {
 		PageFactory.initElements(driver);
 	}
 */	
-	public BookingAccomodationsPage openAccomodationsPageFilter(String destination)
+	public BookingAccomodationsPage openAccomodationsPageFilter1(String destination)
 	{
 		destinationInput.click();
 		destinationInput.clear();
@@ -50,7 +54,31 @@ public class BookingMainPage {
 		dataFieldCheckOut.click();
 		
 		numGuestsInput.click();
-		numGuestsBtnSubtract.click();
+		numAdultsBtnSubtract.click();
+		
+		accomodationSearchBtn.click();
+		return new BookingAccomodationsPage();
+	}
+	
+	public BookingAccomodationsPage openAccomodationsPageFilter2(String destination)
+	{
+		destinationInput.click();
+		destinationInput.clear();
+		destinationInput.sendKeys(destination);
+		
+		dataField.click();
+		
+		dataFieldCheckIn.click();
+		dataFieldCheckOut.click();
+		
+		numGuestsInput.click();
+		for (int i = 0; i < 3; i++){
+			numAdultsBtnAdd.click();
+		}
+		
+		for (int i = 0; i < 2; i++){
+			numRoomsAdd.click();
+		}
 		
 		accomodationSearchBtn.click();
 		return new BookingAccomodationsPage();
@@ -68,7 +96,7 @@ public class BookingMainPage {
 		dataFieldCheckOut.click();
 		
 		numGuestsInput.click();
-		numGuestsBtnSubtract.click();
+		numAdultsBtnSubtract.click();
 		
 		workCheckbox.click();
 		

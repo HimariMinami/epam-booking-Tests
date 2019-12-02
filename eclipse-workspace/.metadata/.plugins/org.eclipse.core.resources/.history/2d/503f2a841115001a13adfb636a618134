@@ -1,0 +1,103 @@
+package accommodations;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingAccomodationsPage {
+
+	@FindBy (xpath  = "//div[@id=\"filter_uf\"]//a[1]")
+	private WebElement filterBoxCity1;
+	
+	@FindBy (xpath  = "//div[@id=\"filter_uf\"]//a[3]")
+	private WebElement accomodationBtn;
+	
+	@FindBy (xpath = "//div[@class=\"sr_header \"]/h1")
+	private WebElement placeHeader;
+
+	@FindBy (xpath = "//div[contains(@class, \"sr_item_new\")][1]//a[contains(@class, \"sr_cta_button\")]")
+	private WebElement firstPlaceSelectRoomBtn;
+	
+	@FindBy (xpath = "//div[contains(@class, \"sr_item_new\")][1]//a[@class = \"hotel_name_link url\"]/span")
+	private WebElement placeName;
+	
+	private static final String PROFIT_PRICE = "d-deal-b";
+	
+	private String city;
+	
+	public BookingAccomodationPage accomodationDescription1(WebDriver driver, String place)
+	{
+		Assert.assertTrue(cityNumIsCorrect(driver, place, 5), "The number of accomodation for the first city is not correct!");
+		place = placeName.getText();
+		firstPlaceSelectRoomBtn.click();
+		
+		return new BookingAccomodationPage();
+	}
+	
+	public BookingAccomodationPage accomodationDescription2(WebDriver driver)
+	{
+		
+		
+		return new BookingAccomodationPage();
+	}
+	
+	public void accomodationCity(WebDriver driver, String place, int num)
+	{
+		Assert.assertEquals(place, placeHeader.getText(), "The place header is not correct!");
+		
+		filterBoxCity1.click();
+		city = filterBoxCity1.getText();
+		
+		Assert.assertTrue(cityNumIsCorrect(driver, city, num), "The number of accomodation for the first city is not correct!");
+	}
+	
+	public void accomodationWorkPrPrice(WebDriver driver, int num)
+	{
+		Assert.assertTrue(profitPriceAccomNumIsCorrect(driver, num), "The number of profit price is not correct!");
+	}
+	
+	public boolean cityNumIsCorrect(WebDriver driver, String place, int num)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.xpath("//a[@class=\"bui-link\" and contains(@data-tooltip-text, \""+ place +"\")]"));
+			if(elements.size() >= num)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}
+	
+	public boolean profitPriceAccomNumIsCorrect(WebDriver driver, int num)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.className(PROFIT_PRICE));
+			if(elements.size() >= num)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}
+}

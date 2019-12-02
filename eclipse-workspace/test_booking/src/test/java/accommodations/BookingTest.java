@@ -2,12 +2,9 @@ package accommodations;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,6 +13,7 @@ public class BookingTest {
 
 	private static final String BOOKING_URL = "https://www.booking.com/";
 	private static final String DESTINATION_1 = "Литва";
+	private static final String DESTINATION_2 = "Клайпеда";
 	
 	private WebDriver driver;
 	
@@ -30,34 +28,37 @@ public class BookingTest {
 	public void addImplicitly()
 	{
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
 		// Maximize browser window
 		driver.manage().window().maximize();
 	}
 	
-	@Test(description = "Найти как минимум по 2 отеля для Вильнюса и Клайпеды")
-	public void testFilterTown()
+	@Test(description = "Найти как минимум 10 вариантов проживания для Вильнюса на неделю с 23 по 29 декабря")
+	public void testFilterCity()
 	{
-		// Найти отели на неделю в Литве, отфильтровать поиск для двух городов: Вильнюс и Клайпеда.
-		// После фильтрации на 1 странице поиска должно отображаться как минимум по два найденных жилья для каждого города.
-		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter(DESTINATION_1);
-		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationCity(driver);
+		// Найти места проживания на неделю с 23 по 29 декабря в Литве, проверить верное отображение заголовка.
+		// Отфильтровать поиск для города Вильнюс. Проверить что отобразилось как минимум 10 вариантов проживания.
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter1(DESTINATION_1);
+		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationCity(driver, DESTINATION_1, 10);
 		
-		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class).townNumIsCorrect(driver), "The number of towns is not correct!");
+		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class).cityNumIsCorrect(driver), "The number of city is not correct!");
+	}
+	
+	@Test(description = "")
+	public void testAccomodationRoom()
+	{
+		//Найти как минимум 5 мест проживания с 3 свободными номерами на неделю с 23 по 29 декабря в Клайпеде,
+		// на четверых взрослых и ребенка 12 лет.
+		// Выбрать первое место из списка и проверить достоверность информации про 3 свободных номера.
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter2(DESTINATION_2);
+		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationDescription1(driver, DESTINATION_2, 5);
+		PageFactory.initElements(driver, BookingAccomodationPage.class).accomodationSelectRoom(driver, 3);
 	}
 	
 	@Test(description = "")
 	public void testWorkCheckBoxProfitPriceLabel()
 	{
 		// Найти с пометкой путешествие по работе как минимум два отеля в Польше на неделю с надписью "выгодный вариант"
-		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationWorkPrPrice(driver);		
-	}
-	
-	@Test(description = "")
-	public void abc2()
-	{
-		//Open ...
-
+		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationWorkPrPrice(driver, 2);		
 	}
 	
 	@Test(description = "")
@@ -91,6 +92,6 @@ public class BookingTest {
 	@AfterClass(description = "Stop Browser")
 	public void stopBrowser()
 	{
-		driver.quit();
+		//driver.quit();
 	}
 }

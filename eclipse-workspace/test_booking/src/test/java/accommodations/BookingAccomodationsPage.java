@@ -12,47 +12,61 @@ import org.testng.Assert;
 public class BookingAccomodationsPage {
 
 	@FindBy (xpath  = "//div[@id=\"filter_uf\"]//a[1]")
-	private WebElement filterBoxTown1;
-	
-	@FindBy (xpath  = "//div[@id=\"filter_uf\"]//a[3]")
-	private WebElement filterBoxTown3;
+	private WebElement filterBoxCity1;
 	
 	@FindBy (xpath  = "//div[@id=\"filter_uf\"]//a[3]")
 	private WebElement accomodationBtn;
+	
+	@FindBy (xpath = "//div[@class=\"sr_header \"]/h1")
+	private WebElement placeHeader;
 
+	@FindBy (xpath = "//div[contains(@class, \"sr_item_new\")][1]//a[contains(@class, \"sr_cta_button\")]")
+	private WebElement firstPlaceSelectRoomBtn;
+	
+	@FindBy (xpath = "//div[contains(@class, \"sr_item_new\")][1]//a[@class = \"hotel_name_link url\"]/span")
+	private WebElement placeName;
+	
 	private static final String PROFIT_PRICE = "d-deal-b";
 	
-	private String town1;
-	private String town3;
+	private String city;
 	
-	public BookingAccomodationPage accomodationDescription(WebDriver driver)
+	public BookingAccomodationPage accomodationDescription1(WebDriver driver, String place, int num)
+	{
+		Assert.assertTrue(cityNumIsCorrect(driver, place, num), "The number of accomodation for the first city is not correct!");
+		place = placeName.getText();
+		firstPlaceSelectRoomBtn.click();
+		
+		return new BookingAccomodationPage();
+	}
+	
+	public BookingAccomodationPage accomodationDescription2(WebDriver driver)
 	{
 		
 		
 		return new BookingAccomodationPage();
 	}
 	
-	public void accomodationCity(WebDriver driver)
+	public void accomodationCity(WebDriver driver, String place, int num)
 	{
-		filterBoxTown1.click();
-		town1 = filterBoxTown1.getText();
-		Assert.assertTrue(townNumIsCorrect(driver, town1), "The number of accomodation for the first city is not correct!");
-		filterBoxTown3.click();
-		town3 = filterBoxTown3.getText();	
-		Assert.assertTrue(townNumIsCorrect(driver, town3), "The number of accomodation for the third city is not correct!");
+		Assert.assertEquals(place, placeHeader.getText(), "The place header is not correct!");
+		
+		filterBoxCity1.click();
+		city = filterBoxCity1.getText();
+		
+		Assert.assertTrue(cityNumIsCorrect(driver, city, num), "The number of accomodation for the first city is not correct!");
 	}
 	
-	public void accomodationWorkPrPrice(WebDriver driver)
+	public void accomodationWorkPrPrice(WebDriver driver, int num)
 	{
-		Assert.assertTrue(profitPriceAccomNumIsCorrect(driver), "The number of profit price is not correct!");
+		Assert.assertTrue(profitPriceAccomNumIsCorrect(driver, num), "The number of profit price is not correct!");
 	}
 	
-	public boolean townNumIsCorrect(WebDriver driver, String town)
+	public boolean cityNumIsCorrect(WebDriver driver, String place, int num)
 	{
 		try
 		{
-			List<WebElement> elements = driver.findElements(By.xpath("//a[@class=\"bui-link\" and contains(@data-tooltip-text, \""+ town +"\"\")]"));
-			if(elements.size() >= 2)
+			List<WebElement> elements = driver.findElements(By.xpath("//a[@class=\"bui-link\" and contains(@data-tooltip-text, \""+ place +"\")]"));
+			if(elements.size() >= num)
 			{
 				return true;
 			}
@@ -67,12 +81,12 @@ public class BookingAccomodationsPage {
 		}
 	}
 	
-	public boolean profitPriceAccomNumIsCorrect(WebDriver driver)
+	public boolean profitPriceAccomNumIsCorrect(WebDriver driver, int num)
 	{
 		try
 		{
 			List<WebElement> elements = driver.findElements(By.className(PROFIT_PRICE));
-			if(elements.size() >= 2)
+			if(elements.size() >= num)
 			{
 				return true;
 			}

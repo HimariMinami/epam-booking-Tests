@@ -1,0 +1,90 @@
+package accommodations;
+
+import static org.testng.Assert.assertEquals;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingAccomodationsPage {
+
+	@FindBy (xpath  = "//div[@id=\"filter_uf\"]//a[1]")
+	private WebElement filterBoxCity1;
+	
+	@FindBy (xpath  = "//div[@id=\"filter_uf\"]//a[3]")
+	private WebElement accomodationBtn;
+	
+	@FindBy (xpath = "//div[@class=\"sr_header \"]/h1")
+	private WebElement placeHeader;
+
+	private static final String PROFIT_PRICE = "d-deal-b";
+	
+	private String city;
+	
+	public BookingAccomodationPage accomodationDescription(WebDriver driver)
+	{
+		
+		
+		return new BookingAccomodationPage();
+	}
+	
+	public void accomodationCity(WebDriver driver, String place)
+	{
+		Assert.assertEquals(place, placeHeader.getText(), "The place header is not correct!");
+		
+		filterBoxCity1.click();
+		city = filterBoxCity1.getText();
+		
+		Assert.assertTrue(cityNumIsCorrect(driver, city), "The number of accomodation for the first city is not correct!");
+	}
+	
+	public void accomodationWorkPrPrice(WebDriver driver)
+	{
+		Assert.assertTrue(profitPriceAccomNumIsCorrect(driver), "The number of profit price is not correct!");
+	}
+	
+	public boolean cityNumIsCorrect(WebDriver driver, String city)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.xpath("//a[@class=\"bui-link\" and contains(@data-tooltip-text, \""+ city +"\")]"));
+			if(elements.size() >= 2)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}
+	
+	public boolean profitPriceAccomNumIsCorrect(WebDriver driver)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.className(PROFIT_PRICE));
+			if(elements.size() >= 2)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}
+}
