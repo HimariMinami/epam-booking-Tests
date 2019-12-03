@@ -1,0 +1,36 @@
+package accommodations;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class BookingToursActivitiesPage {
+
+	@FindBy (xpath = "//a[@data-decider-header=\"attractions\"]")
+	private WebElement toursActivitiesLink;
+	
+	@FindBy (xpath = "//section[3]//div[@class=\"css-1kgbwqn\"][1]")
+	private WebElement romeToursActivitiesBtn;
+	
+	@FindBy (xpath = "//section[3]//div[@class=\"css-1kgbwqn\"][1]//div[@class=\"css-88t9ak\"]")
+	private WebElement romeNumToursActivities;
+	
+	@FindBy (xpath = "//div[@class=\"css-10lidv5\"][1]//a[@class=\"css-11o3gls\"]")
+	private WebElement allVariantsActivitiesBtn;
+	
+	
+	
+	private String romeNumTA;
+	
+	public BookingToursActivitiesDestinationPage accomodationDescription(WebDriver driver, String place, int num) throws InterruptedException
+	{
+		toursActivitiesLink.click();
+		
+		romeNumTA = romeNumToursActivities.getText();
+		
+		romeToursActivitiesBtn.click();
+		
+		return new BookingToursActivitiesDestinationPage();
+	}
+	
+}

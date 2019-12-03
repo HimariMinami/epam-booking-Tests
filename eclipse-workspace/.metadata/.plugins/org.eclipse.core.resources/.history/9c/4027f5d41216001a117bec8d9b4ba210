@@ -1,0 +1,24 @@
+package accommodations;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+public class BookingToursActivitiesDestinationPage {
+
+	
+	public BookingToursActivitiesDestinationPage accomodationDescription(WebDriver driver, String place, int num) throws InterruptedException
+	{
+		toursActivitiesLink.click();
+		
+		romeNumTA = romeNumToursActivities.getText();
+		
+		romeToursActivitiesBtn.click();
+		
+		allVariantsActivitiesBtn.click();
+		
+		Assert.assertTrue(NumParamIsCorrect(driver, Integer.parseInt(romeNumTA), ALL_ACTIVITIES), "The number of accomodation for the first city is not correct!");
+		
+		return new BookingAccomodationPage();
+	}
+	
+}

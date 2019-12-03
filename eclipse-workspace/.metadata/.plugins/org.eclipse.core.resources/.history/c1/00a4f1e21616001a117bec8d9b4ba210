@@ -1,0 +1,38 @@
+package accommodations;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingDestinationAttractionsAllActivitiesPage {
+
+	@FindBy (className = "css-4zzkap")
+	private WebElement cityHeader;
+	
+	private static final String ALL_ACTIVITIES = "//div[@class=\"css-1qm1lh\"]";
+	
+	private final String firstAnotherNumTA;
+	private final String firstAnotherCNameTA;
+	
+	public BookingDestinationAttractionsAllActivitiesPage()
+	{
+		this.firstAnotherNumTA = "";
+		this.firstAnotherCNameTA = "";
+	}
+	
+	public BookingDestinationAttractionsAllActivitiesPage(String firstAnotherNumTA, String firstAnotherCNameTA)
+	{
+		this.firstAnotherNumTA = firstAnotherNumTA;
+		this.firstAnotherCNameTA = firstAnotherCNameTA;
+	}
+	
+	
+	public void accomodationSelectRoom(WebDriver driver, int num)
+	{
+		Assert.assertTrue((cityHeader.getText()).contains(firstAnotherCNameTA), "The city header is not correct!");
+		Assert.assertTrue(NumParamIsCorrect(driver, Integer.parseInt(firstAnotherNumTA), ALL_ACTIVITIES), "The number of activities is not correct!");		
+	}
+	
+	
+}

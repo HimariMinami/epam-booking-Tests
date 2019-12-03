@@ -1,0 +1,33 @@
+package accommodations_attr;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class BookingToursActivitiesDestinationPage {
+
+	@FindBy (xpath = "//div[@class=\"css-10lidv5\"][1]//a[@class=\"css-11o3gls\"]")
+	private WebElement allVariantsActivitiesBtn;
+	
+	private final String firstAnotherNumTA;
+	private final String firstAnotherCNameTA;
+	
+	public BookingToursActivitiesDestinationPage()
+	{
+		this.firstAnotherNumTA = "";
+		this.firstAnotherCNameTA = "";
+	}
+	
+	public BookingToursActivitiesDestinationPage(String firstAnotherNumTA, String firstAnotherCNameTA)
+	{
+		this.firstAnotherNumTA = firstAnotherNumTA;
+		this.firstAnotherCNameTA = firstAnotherCNameTA;
+	}
+	
+	public BookingDestinationAllActivitiesPage AllActivities()
+	{		
+		allVariantsActivitiesBtn.click();
+				
+		return new BookingDestinationAllActivitiesPage(firstAnotherNumTA, firstAnotherCNameTA);
+	}
+	
+}

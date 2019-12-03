@@ -1,0 +1,68 @@
+package accommodations;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingToursActivitiesPage {
+
+	@FindBy (xpath = "//a[@data-decider-header=\"attractions\"]")
+	private WebElement toursActivitiesLink;
+	
+	@FindBy (xpath = "//section[3]//div[@class=\"css-1kgbwqn\"][1]")
+	private WebElement romeToursActivitiesBtn;
+	
+	@FindBy (xpath = "//section[3]//div[@class=\"css-1kgbwqn\"][1]//div[@class=\"css-88t9ak\"]")
+	private WebElement romeNumToursActivities;
+	
+	@FindBy (xpath = "//div[@class=\"css-10lidv5\"][1]//a[@class=\"css-11o3gls\"]")
+	private WebElement allVariantsActivitiesBtn;
+	
+	private static final String ALL_ACTIVITIES = "//div[@class=\"css-1qm1lh\"]";
+	
+	
+	private String romeNumTA;
+	
+	public BookingAccomodationPage accomodationDescription(WebDriver driver, String place, int num) throws InterruptedException
+	{
+		toursActivitiesLink.click();
+		
+		romeNumTA = romeNumToursActivities.getText();
+		
+		romeToursActivitiesBtn.click();
+		allVariantsActivitiesBtn.click();
+		
+		Assert.assertTrue(NumParamIsCorrect(driver, romeNumTA, num), "The number of accomodation for the first city is not correct!");
+		
+		
+		firstPlaceSelectRoomBtn.click();
+		return new BookingAccomodationPage(accomName);
+	}
+	
+	// Проверка на соответствие количества мест проживания c определенным параметром
+	public boolean NumParamIsCorrect(WebDriver driver, int num, String clN)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.className(clN));
+			if(elements.size() >= num)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}	
+	
+}

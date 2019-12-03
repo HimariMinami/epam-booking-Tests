@@ -1,0 +1,39 @@
+package accommodations;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingToursActivitiesDestinationPage {
+
+	@FindBy (xpath = "//div[@class=\"css-10lidv5\"][1]//a[@class=\"css-11o3gls\"]")
+	private WebElement allVariantsActivitiesBtn;
+	
+	private final String firstAnotherNumTA;
+	private final String firstAnotherCNameTA;
+	
+	public BookingToursActivitiesDestinationPage()
+	{
+		this.firstAnotherNumTA = "";
+		this.firstAnotherCNameTA = "";
+	}
+	
+	public BookingToursActivitiesDestinationPage(String firstAnotherNumTA, String firstAnotherCNameTA)
+	{
+		this.firstAnotherNumTA = firstAnotherNumTA;
+		this.firstAnotherCNameTA = firstAnotherCNameTA;
+	}
+	
+	public BookingDestinationAttractionsAllActivitiesPage accomodationDescription(WebDriver driver, String place, int num) throws InterruptedException
+	{		
+		allVariantsActivitiesBtn.click();
+				
+		return new BookingDestinationAttractionsAllActivitiesPage(firstAnotherNumTA, firstAnotherCNameTA);
+	}
+	
+}

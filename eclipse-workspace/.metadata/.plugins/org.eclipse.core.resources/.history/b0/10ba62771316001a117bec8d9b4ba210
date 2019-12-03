@@ -1,0 +1,50 @@
+package accommodations;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
+public class BookingToursActivitiesDestinationPage {
+
+	
+	public BookingToursActivitiesDestinationPage accomodationDescription(WebDriver driver, String place, int num) throws InterruptedException
+	{
+		toursActivitiesLink.click();
+		
+		romeNumTA = romeNumToursActivities.getText();
+		
+		romeToursActivitiesBtn.click();
+		
+		allVariantsActivitiesBtn.click();
+		
+		Assert.assertTrue(NumParamIsCorrect(driver, Integer.parseInt(romeNumTA), ALL_ACTIVITIES), "The number of accomodation for the first city is not correct!");
+		
+		return new BookingAccomodationPage();
+	}
+	
+	// Проверка на соответствие количества мест проживания c определенным параметром
+	public boolean NumParamIsCorrect(WebDriver driver, int num, String clN)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.className(clN));
+			if(elements.size() >= num)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}	
+	
+}
