@@ -1,0 +1,71 @@
+package accommodations;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingAccomodationPage {
+
+	@FindBy (xpath  = "//table[@id = \"hprt-table\"]//tbody/tr[1]/td[5]//select")
+	private WebElement selectRoomCmbbox;
+	
+	@FindBy (xpath = "//h2[@class = \"hp__hotel-name\"]")
+	private WebElement hotelName;
+	
+	private static final String ROOM_CMBBOX_NUM = "//table[@id = \"hprt-table\"]//tbody/tr[1]/td[5]//select/option";
+	
+	public BookingAccomodationPage(String accomName) {
+		Assert.assertEquals(accomName, hotelName.getText(), "The hotel name is not correct!");
+	}
+
+	public void accomodationSelectRoom(WebDriver driver, int num)
+	{
+		changeWindow(driver);
+		selectRoomCmbbox.click();
+		Assert.assertTrue(roomNumIsCorrect(driver, num), "The number of rooms is not correct!");		
+	}
+	
+	public void changeWindow(WebDriver driver)
+	{
+		Set<String> windows = driver.getWindowHandles();
+	    Iterator<String> itr = windows.iterator();
+	    
+	    //patName will provide you parent window
+	    String patName = itr.next();
+	    //System.out.println("parentWindow Handle"+patName);
+
+	    //chldName will provide you child window
+	    String chldName = itr.next();
+	    //System.out.println("childWindow Handle"+chldName);
+
+	    //Switch to child window
+	    driver.switchTo().window(chldName);
+	}
+	
+	public boolean roomNumIsCorrect(WebDriver driver, int num)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.xpath(ROOM_CMBBOX_NUM));
+			if(elements.size() >= num+1)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}
+}

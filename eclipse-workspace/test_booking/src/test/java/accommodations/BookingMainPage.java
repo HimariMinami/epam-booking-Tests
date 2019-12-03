@@ -14,10 +14,16 @@ public class BookingMainPage {
 	private WebElement dataField;
 	
 	@FindBy (xpath = "//div/div[1]/table[1]//tr[5]/td[@class=\"bui-calendar__date\"][1]")
-	private WebElement dataFieldCheckIn;
+	private WebElement dataFieldCheckInWeek;
 	
 	@FindBy (xpath = "//div/div[1]/table[1]//tr[5]/td[@class=\"bui-calendar__date\"][6]")
-	private WebElement dataFieldCheckOut;
+	private WebElement dataFieldCheckOutWeek;
+	
+	@FindBy (xpath = "//div/div[1]/table[1]//tr[6]/td[@class=\"bui-calendar__date\"][2]")
+	private WebElement dataFieldCheckInTwo;
+	
+	@FindBy (xpath = "//div/div[2]/table[1]//tr[1]/td[@class=\"bui-calendar__date\"][1]")
+	private WebElement dataFieldCheckOutTwo;
 	
 	@FindBy (id = "xp__guests__toggle")
 	private WebElement numGuestsInput;
@@ -37,12 +43,7 @@ public class BookingMainPage {
 	@FindBy (xpath = "//div[2]/label[@class=\"bui-checkbox__label\"]")
 	private WebElement workCheckbox;
 	
-/*	public BookingMainPage name(WebDriver driver, Class  )
-	{
-		PageFactory.initElements(driver);
-	}
-*/	
-	public BookingAccomodationsPage openAccomodationsPageFilter1(String destination)
+	public BookingAccomodationsPage openAccomodationsPageFilter(String destination, int numAdults, int numCldrns, int numRooms, boolean work, int days)
 	{
 		destinationInput.click();
 		destinationInput.clear();
@@ -50,17 +51,55 @@ public class BookingMainPage {
 		
 		dataField.click();
 		
-		dataFieldCheckIn.click();
-		dataFieldCheckOut.click();
+		if(days == 2)
+		{
+			dataFieldCheckInTwo.click();
+			dataFieldCheckOutTwo.click();
+		}
+		else
+		{
+			dataFieldCheckInWeek.click();
+			dataFieldCheckOutWeek.click();
+		}
 		
 		numGuestsInput.click();
-		numAdultsBtnSubtract.click();
+		
+		if(numAdults == 1)
+		{
+		 numAdultsBtnSubtract.click();
+		}
+		else if (numAdults >= 3)
+		{
+			for (int i = 0; i < (numAdults-2); i++){
+				numAdultsBtnAdd.click();
+			}
+		}
+		
+		if(numCldrns != 0)
+		{
+			for (int i = 0; i < numCldrns; i++){
+				numCldrnBtnAdd.click();
+			}
+		}
+		
+		if(numRooms > 1)
+		{
+			for (int i = 0; i < numRooms-1; i++){
+				numRoomsAdd.click();
+			}
+		}
+		
+		if(work == true)
+		{
+			workCheckbox.click();
+		}
 		
 		accomodationSearchBtn.click();
+		
 		return new BookingAccomodationsPage();
 	}
 	
-	public BookingAccomodationsPage openAccomodationsPageFilter2(String destination)
+	/*public BookingAccomodationsPage openAccomodationsWithCldrns(String destination)
 	{
 		destinationInput.click();
 		destinationInput.clear();
@@ -76,15 +115,17 @@ public class BookingMainPage {
 			numAdultsBtnAdd.click();
 		}
 		
+		numCldrnBtnAdd.click();
+		
 		for (int i = 0; i < 2; i++){
 			numRoomsAdd.click();
 		}
 		
 		accomodationSearchBtn.click();
 		return new BookingAccomodationsPage();
-	}
+	}*/
 	
-	public BookingAccomodationsPage openAccomodationsPageWork(String destination)
+	/*public BookingAccomodationsPage openAccomodationsPageWork(String destination)
 	{
 		destinationInput.click();
 		destinationInput.clear();
@@ -102,5 +143,5 @@ public class BookingMainPage {
 		
 		accomodationSearchBtn.click();
 		return new BookingAccomodationsPage();
-	}
+	}*/
 }

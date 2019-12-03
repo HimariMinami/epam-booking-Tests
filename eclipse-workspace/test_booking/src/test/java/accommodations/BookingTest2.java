@@ -1,0 +1,50 @@
+package accommodations;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class BookingTest2 {
+
+	private static final String BOOKING_URL = "https://www.booking.com/";
+	private static final String DESTINATION_2 = "Клайпеда";
+	
+	private WebDriver driver;
+	
+	@BeforeClass(description = "Start browser!")
+	public void startBrowser()
+	{
+		driver = new FirefoxDriver();
+		driver.get(BOOKING_URL);
+	}
+	
+	@BeforeClass(dependsOnMethods = "startBrowser", description = "Add implicite wait and maximize window")
+	public void addImplicitly()
+	{
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		// Maximize browser window
+		driver.manage().window().maximize();
+	}
+	
+	@Test(description = "Найти как минимум 5 вариантов проживания с 3 свободными номерами в Клайпеде на неделю на 4 взрослых и ребенка.")
+	public void AccomodationRoom() throws InterruptedException
+	{
+		// Найти как минимум 5 вариантов проживания с 3 свободными номерами на неделю с 23 по 29 декабря в Клайпеде,
+		// на четверых взрослых и ребенка 12 лет.
+		// Выбрать первое место из списка и проверить достоверность информации про 3 свободных номера.
+		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter(DESTINATION_2, 4, 1, 3, false, 7);
+		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationDescription(driver, DESTINATION_2, 5);
+		PageFactory.initElements(driver, BookingAccomodationPage.class).accomodationSelectRoom(driver, 3);
+	}
+	
+	@AfterClass(description = "Stop Browser")
+	public void stopBrowser()
+	{
+		driver.quit();
+	}
+}

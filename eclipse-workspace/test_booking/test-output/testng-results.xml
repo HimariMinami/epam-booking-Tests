@@ -1,92 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="6" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-12-02T09:07:47Z" name="Default suite" finished-at="2019-12-02T09:08:03Z" duration-ms="15427">
+  <suite started-at="2019-12-03T14:02:49Z" name="Default suite" finished-at="2019-12-03T14:03:14Z" duration-ms="24839">
     <groups>
     </groups>
-    <test started-at="2019-12-02T09:07:47Z" name="Default test" finished-at="2019-12-02T09:08:03Z" duration-ms="15427">
-      <class name="accommodations.BookingTest">
-        <test-method is-config="true" signature="startBrowser()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:47Z" name="startBrowser" description="Start browser!" finished-at="2019-12-02T09:07:53Z" duration-ms="5996" status="PASS">
+    <test started-at="2019-12-03T14:02:49Z" name="Default test" finished-at="2019-12-03T14:03:14Z" duration-ms="24839">
+      <class name="accommodations.BookingTest2">
+        <test-method is-config="true" signature="startBrowser()[pri:0, instance:accommodations.BookingTest2@3bd40a57]" started-at="2019-12-03T14:02:49Z" name="startBrowser" description="Start browser!" finished-at="2019-12-03T14:02:56Z" duration-ms="6701" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method is-config="true" signature="addImplicitly()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:53Z" name="addImplicitly" description="Add implicite wait and maximize window" finished-at="2019-12-02T09:07:54Z" depends-on-methods="accommodations.BookingTest.startBrowser" duration-ms="294" status="PASS">
+        <test-method is-config="true" signature="addImplicitly()[pri:0, instance:accommodations.BookingTest2@3bd40a57]" started-at="2019-12-03T14:02:56Z" name="addImplicitly" description="Add implicite wait and maximize window" finished-at="2019-12-03T14:02:56Z" depends-on-methods="accommodations.BookingTest2.startBrowser" duration-ms="304" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addImplicitly -->
-        <test-method signature="abc2()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:54Z" name="abc2" finished-at="2019-12-02T09:07:54Z" duration-ms="5" status="PASS">
+        <test-method signature="AccomodationRoom()[pri:0, instance:accommodations.BookingTest2@3bd40a57]" started-at="2019-12-03T14:02:56Z" name="AccomodationRoom" description="Найти как минимум 5 вариантов проживания с 3 свободными номерами в Клайпеде на неделю на 4 взрослых и ребенка." finished-at="2019-12-03T14:03:10Z" duration-ms="14131" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- abc2 -->
-        <test-method signature="abc3()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:54Z" name="abc3" finished-at="2019-12-02T09:07:54Z" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- abc3 -->
-        <test-method signature="abc4()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:54Z" name="abc4" finished-at="2019-12-02T09:07:54Z" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- abc4 -->
-        <test-method signature="abc5()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:54Z" name="abc5" finished-at="2019-12-02T09:07:54Z" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- abc5 -->
-        <test-method signature="abc6()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:54Z" name="abc6" finished-at="2019-12-02T09:07:54Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- abc6 -->
-        <test-method signature="testFilterTown()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:07:54Z" name="testFilterTown" description="Найти как минимум по 2 отеля для Вильнюса и Клайпеды" finished-at="2019-12-02T09:08:03Z" duration-ms="9059" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[The number of accomodation for the third city is not correct!1Клайпеда expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The number of accomodation for the third city is not correct!1Клайпеда expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:96)
-at org.testng.Assert.failNotEquals(Assert.java:776)
-at org.testng.Assert.assertTrue(Assert.java:44)
-at accommodations.BookingAccomodationsPage.accomodationCity(BookingAccomodationsPage.java:44)
-at accommodations.BookingTest.testFilterTown(BookingTest.java:40)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFilterTown -->
-        <test-method signature="testWorkCheckBoxProfitPriceLabel()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:08:03Z" name="testWorkCheckBoxProfitPriceLabel" finished-at="2019-12-02T09:08:03Z" duration-ms="22" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testWorkCheckBoxProfitPriceLabel -->
-        <test-method is-config="true" signature="stopBrowser()[pri:0, instance:accommodations.BookingTest@69930714]" started-at="2019-12-02T09:08:03Z" name="stopBrowser" description="Stop Browser" finished-at="2019-12-02T09:08:03Z" duration-ms="0" status="PASS">
+        </test-method> <!-- AccomodationRoom -->
+        <test-method is-config="true" signature="stopBrowser()[pri:0, instance:accommodations.BookingTest2@3bd40a57]" started-at="2019-12-03T14:03:10Z" name="stopBrowser" description="Stop Browser" finished-at="2019-12-03T14:03:14Z" duration-ms="3685" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopBrowser -->
-      </class> <!-- accommodations.BookingTest -->
+      </class> <!-- accommodations.BookingTest2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
