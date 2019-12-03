@@ -1,6 +1,8 @@
 package accommodations;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -21,14 +23,11 @@ public class BookingAccomodationPage {
 	
 	private final String accomName;
 	
-	public BookingAccomodationPage(String accomName)
-	{
-		this.accomName = accomName;
+	public BookingAccomodationPage() {
 	}
 	
-	public BookingAccomodationPage()
-	{
-		this.accomName = "";
+	public BookingAccomodationPage(String accomName) {
+		this.accomName = accomName;
 	}
 	
 	public void accomodationSelectRoom(WebDriver driver, int num)

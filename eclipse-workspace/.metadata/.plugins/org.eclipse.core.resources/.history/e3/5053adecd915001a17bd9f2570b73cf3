@@ -109,6 +109,19 @@ public class BookingAccomodationsPage {
 	
 	public void changeWindow(WebDriver driver) throws InterruptedException
 	{
+		/*// Get current window handle
+        String parentWinHandle = driver.getWindowHandle();
+        
+        // Get the window handles of all open windows
+        Set<String> winHandles = driver.getWindowHandles();
+        
+        // Loop through all handles
+        for(String handle: winHandles){
+            if(!handle.equals(parentWinHandle)){
+            driver.switchTo().window(handle);
+            }
+        }*/
+		
 		Set<String> windows = driver.getWindowHandles();
 	    Iterator<String> itr = windows.iterator();
 	    

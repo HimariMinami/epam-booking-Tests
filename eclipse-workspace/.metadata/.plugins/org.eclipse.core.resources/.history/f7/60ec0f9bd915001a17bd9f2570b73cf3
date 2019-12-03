@@ -1,6 +1,8 @@
 package accommodations;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -19,7 +21,7 @@ public class BookingAccomodationPage {
 	
 	private static final String ROOM_CMBBOX_NUM = "//table[@id = \"hprt-table\"]//tbody/tr[1]/td[5]//select/option";
 	
-	private final String accomName;
+	private String accomName;
 	
 	public BookingAccomodationPage(String accomName)
 	{
@@ -28,7 +30,7 @@ public class BookingAccomodationPage {
 	
 	public BookingAccomodationPage()
 	{
-		this.accomName = "";
+		
 	}
 	
 	public void accomodationSelectRoom(WebDriver driver, int num)
