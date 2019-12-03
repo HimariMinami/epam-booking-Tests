@@ -51,12 +51,12 @@ public class BookingAccomodationsPage {
 		filterBoxCity1.click();
 		city = filterBoxCity1.getText();
 		
-		Assert.assertTrue(cityNumIsCorrect(driver, city, num), "The number of accomodation for the first " + city + " is not correct!");
+		Assert.assertTrue(cityNumIsCorrect(driver, city, num), "The number of accomodation for the first city is not correct!");
 	}
 	
 	public void accomodationWorkPrPrice(WebDriver driver, String place, int num)
 	{
-		Assert.assertTrue(cityNumIsCorrect(driver, place, num), "The number of accomodation for the " + place + " is not correct!");
+		Assert.assertTrue(cityNumIsCorrect(driver, place, num), "The number of accomodation for the" + place + "is not correct!");
 		Assert.assertTrue(NumParamIsCorrect(driver, num, PROFIT_PRICE), "The number of profit price is not correct!");
 	}
 	
@@ -70,8 +70,7 @@ public class BookingAccomodationsPage {
 	{
 		try
 		{
-			List<WebElement> elements = driver.findElements(By.xpath("//a[@class=\"bui-link\" and contains(text(), \""+ place + "\")]"));
-			
+			List<WebElement> elements = driver.findElements(By.xpath("//a[@class=\"bui-link\" and contains(@data-tooltip-text, \""+ place +"\")]"));
 			if(elements.size() >= num)
 			{
 				return true;

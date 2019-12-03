@@ -42,6 +42,6 @@ public class BookingTest3 {
 	@AfterClass(description = "Stop Browser")
 	public void stopBrowser()
 	{
-		driver.quit();
+		//driver.quit();
 	}
 }

@@ -31,7 +31,7 @@ public class BookingTest3 {
 		driver.manage().window().maximize();
 	}
 	
-	@Test(description = "Найти как миниммум 2 отеля с выгодным предложением по работе в Вильнюсе на неделю для 1 человека")
+	@Test(description = "Найти как миниммум 2 отеля с выгодным предложением по работе в Польше на неделю для 1 человека")
 	public void testWorkCheckBoxProfitPriceLabel()
 	{
 		// Найти с пометкой путешествие по работе как минимум два отеля в Вильнюсе на неделю с 23 по 29 декабря с надписью "выгодный вариант".
@@ -42,6 +42,6 @@ public class BookingTest3 {
 	@AfterClass(description = "Stop Browser")
 	public void stopBrowser()
 	{
-		driver.quit();
+		//driver.quit();
 	}
 }
