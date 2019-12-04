@@ -30,14 +30,19 @@ public class BookingTest6 {
 		driver.manage().window().maximize();
 	}
 	
-	@Test(description = "")
-	public void abc5()
+	@Test(description = "Проверка соответствия названия и цены досуга")
+	public void CostActivities() throws InterruptedException
 	{
-		//
+		// При выборе вкладки "Экскурсии и развлечения", выбираем первое направление под заголовком "Посмотрите другие направления"
+		// Проверяем соответствие названия страны выбранного направления c заголовком страницы предложений вариантов досуга.
+		// Нажимаем на кнопку "Посмотреть все варианты". Нажимаем на первый в списке вариант досуга.
+		// Проверяем соответствие цены досуга со страницы всех вариантов досуга с ценой досуга на странице с описанием досуга.
+		// Проверяем соответствие названия досуга со страницы всех вариантов досуга с названием досуга на странице с описанием досуга.
+		
 		PageFactory.initElements(driver, BookingToursActivitiesPage.class).ToursActivitiesDestination();
-		PageFactory.initElements(driver, BookingToursActivitiesDestinationPage.class).AllActivities();
+		PageFactory.initElements(driver, BookingToursActivitiesDestinationPage.class).AllActivities(driver);
 		PageFactory.initElements(driver, BookingDestinationAllActivitiesPage.class).activityDescription();
-		PageFactory.initElements(driver, BookingActivityPage.class).assertCityHeader();;
+		PageFactory.initElements(driver, BookingActivityPage.class).assertActivityNamtCost();
 	}
 	
 	@AfterClass(description = "Stop Browser")

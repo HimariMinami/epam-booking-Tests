@@ -1,0 +1,52 @@
+package accommodations_attr;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class BookingTest5 {
+
+	private static final String BOOKING_URL = "https://www.booking.com/";
+	
+	private WebDriver driver;
+	
+	@BeforeClass(description = "Start browser!")
+	public void startBrowser()
+	{
+		driver = new FirefoxDriver();
+		driver.get(BOOKING_URL);
+	}
+	
+	@BeforeClass(dependsOnMethods = "startBrowser", description = "Add implicite wait and maximize window")
+	public void addImplicitly()
+	{
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		// Maximize browser window
+		driver.manage().window().maximize();
+	}
+	
+	@Test(description = "Проверка соответствия количества активностей и названий заголовков для города")
+	public void NumberActivities()
+	{
+		// При выборе вкладки "Экскурсии и развлечения", выбираем первое направление под заголовком "Посмотрите другие направления"
+		// Проверяем соответствие названия страны выбранного направления c заголовком страницы предложений вариантов досуга.
+		// Нажимаем на кнопку "Посмотреть все варианты"
+		// Проверяем соответствие названия страны с заголовком страницы со всеми вариантами досуга.
+		// Также на этой странице проверяем соответствие количества активностей для страны со страницы "Экскурсии и развлечения".
+		
+		PageFactory.initElements(driver, BookingToursActivitiesPage.class).ToursActivitiesDestination();
+		PageFactory.initElements(driver, BookingToursActivitiesDestinationPage.class).AllActivities();
+		PageFactory.initElements(driver, BookingDestinationAllActivitiesPage.class).assertActivitiesCity(driver);
+	}
+	
+	@AfterClass(description = "Stop Browser")
+	public void stopBrowser()
+	{
+		driver.quit();
+	}
+}

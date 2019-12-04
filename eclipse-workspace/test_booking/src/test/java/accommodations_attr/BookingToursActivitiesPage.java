@@ -9,7 +9,7 @@ public class BookingToursActivitiesPage {
 	private WebElement toursActivitiesLink;
 	
 	@FindBy (xpath = "//section[3]//div[@class=\"css-1kgbwqn\"][1]")
-	private WebElement romeToursActivitiesBtn;
+	private WebElement firstAnotherToursActivitiesBtn;
 	
 	@FindBy (xpath = "//section[3]//div[@class=\"css-1kgbwqn\"][1]//div[@class=\"css-88t9ak\"]")
 	private WebElement firstAnotherNumToursActivities;
@@ -17,19 +17,17 @@ public class BookingToursActivitiesPage {
 	@FindBy (xpath = "//section[3]//div[@class=\"css-1kgbwqn\"][1]//div[@class=\"css-1s8e6wr\"]")
 	private WebElement firstAnotherCityNameToursActivities;
 	
-	private String firstAnotherNumTA;
 	private String firstAnotherCNameTA;
 	
 	public BookingToursActivitiesDestinationPage ToursActivitiesDestination()
 	{
 		toursActivitiesLink.click();
 		
-		firstAnotherNumTA = firstAnotherNumToursActivities.getText();
 		firstAnotherCNameTA = firstAnotherCityNameToursActivities.getText();
-				
-		romeToursActivitiesBtn.click();
+
+		firstAnotherToursActivitiesBtn.click();
 		
-		return new BookingToursActivitiesDestinationPage(firstAnotherNumTA, firstAnotherCNameTA);
+		return new BookingToursActivitiesDestinationPage(firstAnotherCNameTA);
 	}
 	
 }

@@ -6,21 +6,28 @@ import org.testng.Assert;
 
 public class BookingActivityPage {
 
-	@FindBy (xpath = "//div[@class=\"css-37ds6r\"]//div[@class=\"css-1qxslmw\"]//div[@class=\"css-156c2rk\"]")
+	@FindBy (xpath = "//div[@class=\"css-37ds6r\"]//div[@class=\"css-1qxslmw\"]/div//div/div/div/div/div[1]")
 	private WebElement costAttraction;
 	
+	@FindBy (xpath = "//h2[@class=\"css-vwbrst\"]")
+	private WebElement nameActivity;
+	
 	private String costFAttr;
+	private String nameActiv;
 	
 	public BookingActivityPage() {
 		this.costFAttr = "";
+		this.nameActiv = "";
 	}
 	
-	public BookingActivityPage(String costFAttr) {
+	public BookingActivityPage(String costFAttr, String nameActiv) {
 		this.costFAttr = costFAttr;
+		this.nameActiv = nameActiv;
 	}
 
-	public void assertCityHeader()
+	public void assertActivityNamtCost()
 	{
-		Assert.assertTrue((costAttraction.getText()).contains(costFAttr), "The city header is not correct!");
+		Assert.assertTrue((nameActivity.getText()).contains(nameActiv), "The name of activity is not correct!");
+		Assert.assertTrue((costAttraction.getText()).contains(costFAttr), "The cost for activity is not correct!");
 	}
 }

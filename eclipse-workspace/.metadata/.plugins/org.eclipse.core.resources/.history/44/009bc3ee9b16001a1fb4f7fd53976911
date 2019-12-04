@@ -1,0 +1,53 @@
+package accommodations_attr;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingToursActivitiesDestinationPage {
+
+	@FindBy (xpath = "//div[@class=\"css-10lidv5\"][1]//a[@class=\"css-11o3gls\"]")
+	private WebElement allVariantsActivitiesBtn;
+	
+	@FindBy (xpath = "//div[@id=\"root\"]/div[2]/div/div/div[2]/div/div")
+	private WebElement countryTAHeader;
+	
+	private final String firstAnotherNumTA;
+	private final String firstAnotherCNameTA;
+	
+	private String fAnotherNumTA;
+	private String fAnotherCNameTA;
+	private String fA;
+	
+	public BookingToursActivitiesDestinationPage()
+	{
+		this.firstAnotherNumTA = "";
+		this.firstAnotherCNameTA = "";
+	}
+	
+	public BookingToursActivitiesDestinationPage(String firstAnotherNumTA, String firstAnotherCNameTA)
+	{		
+		this.firstAnotherNumTA = firstAnotherNumTA;
+		this.firstAnotherCNameTA = firstAnotherCNameTA;
+		
+	}
+	
+	public BookingDestinationAllActivitiesPage AllActivities(WebDriver driver) throws InterruptedException
+	{		
+		fAnotherNumTA = firstAnotherNumTA;
+		fAnotherCNameTA = firstAnotherCNameTA;
+		fA = fAnotherNumTA + "  " + fAnotherCNameTA;
+		Thread.sleep(2000);
+		Assert.assertTrue((countryTAHeader.getText()).contains(fAnotherCNameTA), "The country header is not correct!");
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", allVariantsActivitiesBtn);
+		
+		allVariantsActivitiesBtn.click();
+				
+		Thread.sleep(5000);
+		
+		return new BookingDestinationAllActivitiesPage(fA);
+	}
+	
+}

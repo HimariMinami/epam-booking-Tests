@@ -1,0 +1,31 @@
+package accommodations_attr;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingBookApartmentPage {
+
+	@FindBy (xpath = "//h2[@id=\"hp_hotel_name\"]/span")
+	private WebElement nameApart;
+	
+	private final String apartName;
+	
+	public BookingBookApartmentPage() {
+		this.apartName = "";
+	}
+	
+	public BookingBookApartmentPage(String apartName) {
+		this.apartName = apartName;
+	}
+
+	@FindBy (xpath = "//span[@class = \"sb-searchbox__title-text\"]")
+	private WebElement ApartHeader;
+	
+	public void openApartmentDescriptionPage()
+	{
+		Assert.assertTrue((nameApart.getText()).contains(apartName), "The name of apartment is not correct!");
+		
+	}
+	
+}

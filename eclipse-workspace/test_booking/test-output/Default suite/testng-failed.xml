@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="accommodations.BookingTest3">
+      <class name="accommodations_attr.BookingTest7">
         <methods>
-          <include name="testWorkCheckBoxProfitPriceLabel"/>
           <include name="startBrowser"/>
           <include name="stopBrowser"/>
+          <include name="abc4"/>
           <include name="addImplicitly"/>
         </methods>
-      </class> <!-- accommodations.BookingTest3 -->
+      </class> <!-- accommodations_attr.BookingTest7 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

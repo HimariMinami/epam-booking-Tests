@@ -1,0 +1,22 @@
+package accommodations_attr;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class BookingApartmentsPage {
+
+	private final String apartHeader;
+	
+	public BookingApartmentsPage() {
+		this.apartHeader = "";
+	}
+	
+	public BookingApartmentsPage(String apartHeader) {
+		this.apartHeader = apartHeader;
+	}
+
+	@FindBy (xpath = "//span[@class = \"sb-searchbox__title-text\"]")
+	private WebElement ApartHeader;
+	
+	
+}

@@ -1,0 +1,83 @@
+package accommodations_attr;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingDestinationAllActivitiesPage {
+
+	@FindBy (className = "css-4zzkap")
+	private WebElement countryHeader;
+	
+	@FindBy (xpath = "//div[@class=\"css-1nha944\"]//div[@class=\"css-1qm1lh\"][1]")
+	private WebElement firstAttraction;
+	
+	@FindBy (xpath = "//div[@class=\"css-1nha944\"]//div[@class=\"css-1qm1lh\"][1]//div[@class=\"css-9ijqjz\"]")
+	private WebElement costFirstAttraction;
+	
+	@FindBy (xpath = "//div[@class=\"css-1qm1lh\"][1]//h4[@class=\"css-1j2nyyh\"]")
+	private WebElement nameActivity;
+	
+	private static final String ALL_ACTIVITIES = "//div[@class=\"css-1qm1lh\"]";
+	
+	private final String firstAnotherNumTA1;
+	private final String firstAnotherCNameTA1;
+	
+	
+	private String costFAttr;
+	private String nameActiv;
+	
+	public BookingDestinationAllActivitiesPage()
+	{
+		this.firstAnotherNumTA1 = "";
+		this.firstAnotherCNameTA1 = "";
+	}
+	
+	public BookingDestinationAllActivitiesPage(String firstAnotherNumTA1, String firstAnotherCNameTA1)
+	{
+		this.firstAnotherNumTA1 = firstAnotherNumTA1;
+		this.firstAnotherCNameTA1 = firstAnotherCNameTA1;
+	}
+	
+	
+	/*public void assertActivitiesCity(WebDriver driver)
+	{
+		Assert.assertTrue((countryHeader.getText()).contains(firstAnotherCNameTA1), "The country header is not correct!");
+		Assert.assertTrue(NumParamIsCorrect(driver, Integer.parseInt(firstAnotherNumTA1), ALL_ACTIVITIES), "The number of activities is not correct!");		
+	}*/
+	
+	public BookingActivityPage activityDescription()
+	{		
+		costFAttr = costFirstAttraction.getText();
+		nameActiv = nameActivity.getText();
+		firstAttraction.click();
+				
+		return new BookingActivityPage(costFAttr, nameActiv);
+	}
+	
+	// Проверка на соответствие c определенным параметром
+	public boolean NumParamIsCorrect(WebDriver driver, int num, String clN)
+	{
+		try
+		{
+			List<WebElement> elements = driver.findElements(By.xpath(clN));
+			if(elements.size() >= num)
+			{
+				return true;
+			}
+			else
+			{ 
+				return false;
+			}
+		}
+		catch(NoSuchElementException e)
+		{
+			return false;
+		}
+	}	
+}

@@ -41,6 +41,16 @@ public class BookingAccomodationsPage {
 		accomName = accomodationName.getText();
 		firstPlaceSelectRoomBtn.click();
 		changeWindow(driver);
+		
+		return new BookingAccomodationPage(accomName);
+	}
+	
+	public BookingAccomodationPage accomodationDescription1(WebDriver driver) throws InterruptedException
+	{
+		accomName = accomodationName.getText();
+		firstPlaceSelectRoomBtn.click();
+		changeWindow(driver);
+		
 		return new BookingAccomodationPage(accomName);
 	}
 	

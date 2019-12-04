@@ -30,12 +30,16 @@ public class BookingTest5 {
 		driver.manage().window().maximize();
 	}
 	
-	@Test(description = "")
-	public void abc4()
+	@Test(description = "Проверка соответствия количества активностей и названий заголовков для города")
+	public void NumberActivities() throws InterruptedException
 	{
-		// 
+		// При выборе вкладки "Экскурсии и развлечения", выбираем первое направление под заголовком "Посмотрите другие направления"
+		// Проверяем соответствие названия страны выбранного направления c заголовком страницы предложений вариантов досуга.
+		// Нажимаем на кнопку "Посмотреть все варианты"
+		// На странице со всеми вариантами досуга проверяем соответствие количества списка активностей с суммой вариантов активностей на фильтре поиска.
+		
 		PageFactory.initElements(driver, BookingToursActivitiesPage.class).ToursActivitiesDestination();
-		PageFactory.initElements(driver, BookingToursActivitiesDestinationPage.class).AllActivities();
+		PageFactory.initElements(driver, BookingToursActivitiesDestinationPage.class).AllActivities(driver);
 		PageFactory.initElements(driver, BookingDestinationAllActivitiesPage.class).assertActivitiesCity(driver);
 	}
 	

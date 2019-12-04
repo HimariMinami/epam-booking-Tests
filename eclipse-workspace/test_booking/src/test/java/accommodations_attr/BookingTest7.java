@@ -31,10 +31,15 @@ public class BookingTest7 {
 	}
 	
 	@Test(description = "")
-	public void abc4()
+	public void abc4() throws InterruptedException
 	{
 		//
-
+		
+		PageFactory.initElements(driver, BookingMainPage.class).openApartmentsPage();
+		PageFactory.initElements(driver, BookingApartmentsPage.class).openBookApartmentPage();
+		PageFactory.initElements(driver, BookingBookApartmentPage.class).openApartmentDescriptionPage(driver);
+		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationDescription1(driver);
+		PageFactory.initElements(driver, BookingAccomodationPage.class).accomodationSelectRoom(driver, 1);
 	}
 	
 	@AfterClass(description = "Stop Browser")

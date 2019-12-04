@@ -12,55 +12,61 @@ import org.testng.Assert;
 public class BookingDestinationAllActivitiesPage {
 
 	@FindBy (className = "css-4zzkap")
-	private WebElement cityHeader;
+	private WebElement countryHeader;
 	
 	@FindBy (xpath = "//div[@class=\"css-1nha944\"]//div[@class=\"css-1qm1lh\"][1]")
 	private WebElement firstAttraction;
 	
-	@FindBy (xpath = "//div[@class=\"css-1nha944\"]//div[@class=\"css-1qm1lh\"][1]//div[@class=\"css-9ijqjz\"]")
+	@FindBy (xpath = "//div[@class=\"css-1nha944\"]//div[@class=\"css-1qm1lh\"][1]/a/div/div[2]/div[1]/div[1]")
 	private WebElement costFirstAttraction;
 	
-	private static final String ALL_ACTIVITIES = "//div[@class=\"css-1qm1lh\"]";
+	@FindBy (xpath = "//div[@class=\"css-1qm1lh\"][1]//h4[@class=\"css-1j2nyyh\"]")
+	private WebElement nameActivity;
 	
-	private final String firstAnotherNumTA;
-	private final String firstAnotherCNameTA;
+	private static final String ALL_ACTIVITIES = "css-1qm1lh";	
+	private static final String CMBBX_ACTIVITIES_NUM = "//span[@class=\"css-1d2tbqv\"]";
 	
 	private String costFAttr;
-	
-	public BookingDestinationAllActivitiesPage()
-	{
-		this.firstAnotherNumTA = "";
-		this.firstAnotherCNameTA = "";
-	}
-	
-	public BookingDestinationAllActivitiesPage(String firstAnotherNumTA, String firstAnotherCNameTA)
-	{
-		this.firstAnotherNumTA = firstAnotherNumTA;
-		this.firstAnotherCNameTA = firstAnotherCNameTA;
-	}
-	
+	private String nameActiv;
 	
 	public void assertActivitiesCity(WebDriver driver)
 	{
-		Assert.assertTrue((cityHeader.getText()).contains(firstAnotherCNameTA), "The city header is not correct!");
-		Assert.assertTrue(NumParamIsCorrect(driver, Integer.parseInt(firstAnotherNumTA), ALL_ACTIVITIES), "The number of activities is not correct!");		
+		Assert.assertTrue(ParamIsCorrect(driver, CMBBX_ACTIVITIES_NUM, ALL_ACTIVITIES), "The number of activities is not correct!");		
 	}
 	
 	public BookingActivityPage activityDescription()
 	{		
 		costFAttr = costFirstAttraction.getText();
+		nameActiv = nameActivity.getText();
 		firstAttraction.click();
 				
-		return new BookingActivityPage(costFAttr);
+		return new BookingActivityPage(costFAttr, nameActiv);
 	}
 	
-	// ѕроверка на соответствие количества мест проживани€ c определенным параметром
-	public boolean NumParamIsCorrect(WebDriver driver, int num, String clN)
+	private String text;
+	private int num;
+	private int sum = 0;
+	
+	// ѕроверка на соответствие количества элементов
+	public boolean ParamIsCorrect(WebDriver driver, String A, String clN)
 	{
 		try
 		{
-			List<WebElement> elements = driver.findElements(By.xpath(clN));
-			if(elements.size() >= num)
+			List<WebElement> elements = driver.findElements(By.className(clN));
+			List<WebElement> elements1 = driver.findElements(By.xpath(A));
+			
+			int q = elements.size();
+			
+			for (WebElement qn: elements1) {
+			    text = qn.getText();
+			    text = text.replace("(", "");
+			    text = text.replace(")", "");			    
+			    num = Integer.parseInt(text);
+			    sum += num;
+			    text = null;
+			}
+			
+			if(sum == q)
 			{
 				return true;
 			}

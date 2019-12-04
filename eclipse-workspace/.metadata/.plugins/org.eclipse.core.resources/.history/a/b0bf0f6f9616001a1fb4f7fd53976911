@@ -1,0 +1,73 @@
+package accommodations_attr;
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingToursActivitiesDestinationPage {
+
+	@FindBy (xpath = "//div[@class=\"css-10lidv5\"][1]//a[@class=\"css-11o3gls\"]")
+	private WebElement allVariantsActivitiesBtn;
+	
+	@FindBy (xpath = "//div[@id=\"root\"]/div[2]/div/div/div[2]/div/div")
+	private WebElement countryTAHeader;
+	
+	private final String firstAnotherNumTA;
+	private final String firstAnotherCNameTA;
+	
+	private String fAnotherNumTA;
+	private String fAnotherCNameTA;
+	
+	public BookingToursActivitiesDestinationPage()
+	{
+		this.firstAnotherNumTA = "";
+		this.firstAnotherCNameTA = "";
+	}
+	
+	public BookingToursActivitiesDestinationPage(String firstAnotherNumTA, String firstAnotherCNameTA)
+	{		
+		this.firstAnotherNumTA = firstAnotherNumTA;
+		this.firstAnotherCNameTA = firstAnotherCNameTA;
+		
+	}
+	
+	public BookingDestinationAllActivitiesPage AllActivities(WebDriver driver) throws InterruptedException
+	{		
+		fAnotherNumTA = firstAnotherNumTA;
+		fAnotherCNameTA = firstAnotherCNameTA;
+		
+		Thread.sleep(2000);
+		Assert.assertTrue((countryTAHeader.getText()).contains(firstAnotherCNameTA), "The country header is not correct!");
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", allVariantsActivitiesBtn);
+		
+		allVariantsActivitiesBtn.click();
+		
+		changeWindow(driver);
+				
+		return new BookingDestinationAllActivitiesPage(fAnotherNumTA, fAnotherCNameTA);
+	}
+	
+	public void changeWindow(WebDriver driver) throws InterruptedException
+	{
+		Set<String> windows = driver.getWindowHandles();
+	    Iterator<String> itr = windows.iterator();
+	    
+	    //patName will provide you parent window
+	    String patName = itr.next();
+	    //System.out.println("parentWindow Handle"+patName);
+
+	    //chldName will provide you child window
+	    String chldName = itr.next();
+	    //System.out.println("childWindow Handle"+chldName);
+
+	    //Switch to child window
+	    driver.switchTo().window(chldName);
+		
+        Thread.sleep(5000);
+	}
+}

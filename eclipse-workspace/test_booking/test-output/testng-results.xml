@@ -1,29 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-12-03T14:57:48Z" name="Default suite" finished-at="2019-12-03T14:58:03Z" duration-ms="14748">
+  <suite started-at="2019-12-04T14:57:50Z" name="Default suite" finished-at="2019-12-04T14:58:11Z" duration-ms="21185">
     <groups>
     </groups>
-    <test started-at="2019-12-03T14:57:48Z" name="Default test" finished-at="2019-12-03T14:58:03Z" duration-ms="14748">
-      <class name="accommodations.BookingTest4">
-        <test-method is-config="true" signature="startBrowser()[pri:0, instance:accommodations.BookingTest4@3bd40a57]" started-at="2019-12-03T14:57:48Z" name="startBrowser" description="Start browser!" finished-at="2019-12-03T14:57:55Z" duration-ms="7002" status="PASS">
+    <test started-at="2019-12-04T14:57:50Z" name="Default test" finished-at="2019-12-04T14:58:11Z" duration-ms="21185">
+      <class name="accommodations_attr.BookingTest7">
+        <test-method is-config="true" signature="startBrowser()[pri:0, instance:accommodations_attr.BookingTest7@3bd40a57]" started-at="2019-12-04T14:57:50Z" name="startBrowser" description="Start browser!" finished-at="2019-12-04T14:57:57Z" duration-ms="6882" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method is-config="true" signature="addImplicitly()[pri:0, instance:accommodations.BookingTest4@3bd40a57]" started-at="2019-12-03T14:57:55Z" name="addImplicitly" description="Add implicite wait and maximize window" finished-at="2019-12-03T14:57:55Z" depends-on-methods="accommodations.BookingTest4.startBrowser" duration-ms="286" status="PASS">
+        <test-method is-config="true" signature="addImplicitly()[pri:0, instance:accommodations_attr.BookingTest7@3bd40a57]" started-at="2019-12-04T14:57:57Z" name="addImplicitly" description="Add implicite wait and maximize window" finished-at="2019-12-04T14:57:57Z" depends-on-methods="accommodations_attr.BookingTest7.startBrowser" duration-ms="283" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addImplicitly -->
-        <test-method signature="LateReservation()[pri:0, instance:accommodations.BookingTest4@3bd40a57]" started-at="2019-12-03T14:57:55Z" name="LateReservation" description="Найти на 2 дня с 31 декабря по 1 января на двоих 1 и более занятых варианта проживания" finished-at="2019-12-03T14:58:00Z" duration-ms="4834" status="PASS">
+        <test-method signature="abc4()[pri:0, instance:accommodations_attr.BookingTest7@3bd40a57]" started-at="2019-12-04T14:57:57Z" name="abc4" finished-at="2019-12-04T14:58:08Z" duration-ms="11081" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to locate element: //div[@style][2]//li[1]//a[contains(@class, "bui-card__title")]
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'INV-144', ip: '192.168.13.76', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '13.0.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 70.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20191030021342, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 30320, moz:profile: C:\Users\a.khvashchevskaya\..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: e233d4b4-926f-4b2d-82bc-eb90539bc70a
+*** Element info: {Using=xpath, value=//div[@style][2]//li[1]//a[contains(@class, "bui-card__title")]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: //div[@style][2]//li[1]//a[contains(@class, "bui-card__title")]
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'INV-144', ip: '192.168.13.76', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '13.0.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 70.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20191030021342, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 30320, moz:profile: C:\Users\a.khvashchevskaya\..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: e233d4b4-926f-4b2d-82bc-eb90539bc70a
+*** Element info: {Using=xpath, value=//div[@style][2]//li[1]//a[contains(@class, "bui-card__title")]}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.getText(Unknown Source)
+at accommodations_attr.BookingApartmentsPage.openBookApartmentPage(BookingApartmentsPage.java:37)
+at accommodations_attr.BookingTest7.abc4(BookingTest7.java:39)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LateReservation -->
-        <test-method is-config="true" signature="stopBrowser()[pri:0, instance:accommodations.BookingTest4@3bd40a57]" started-at="2019-12-03T14:58:00Z" name="stopBrowser" description="Stop Browser" finished-at="2019-12-03T14:58:03Z" duration-ms="2606" status="PASS">
+        </test-method> <!-- abc4 -->
+        <test-method is-config="true" signature="stopBrowser()[pri:0, instance:accommodations_attr.BookingTest7@3bd40a57]" started-at="2019-12-04T14:58:08Z" name="stopBrowser" description="Stop Browser" finished-at="2019-12-04T14:58:11Z" duration-ms="2913" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopBrowser -->
-      </class> <!-- accommodations.BookingTest4 -->
+      </class> <!-- accommodations_attr.BookingTest7 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
