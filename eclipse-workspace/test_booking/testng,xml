@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BookingSuite">
+
+	<test name="BookingTest">
+		<classes>
+			<class name="accommodations_attr.BookingTest1" />
+			<class name="accommodations_attr.BookingTest2" />
+			<class name="accommodations_attr.BookingTest3" />
+			<class name="accommodations_attr.BookingTest4" />
+			<class name="accommodations_attr.BookingTest5" />
+			<class name="accommodations_attr.BookingTest6" />
+			<class name="accommodations_attr.BookingTest7" />
+		</classes>	
+	</test>
+
+</suite>
