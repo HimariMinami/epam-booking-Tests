@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="//div[@class=&quot;css-1nha944&quot;]//div[@class=&quot;css-1qm1lh&quot;][1]//div[@class=&quot;css-9ijqjz&quot;]"/>
+		<item key="selection" value="accomodationSelectRoom"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="#hp__hotel\-name"/>
+			<item value="BookingBookApartmentPage"/>
+			<item value="scroll"/>
 			<item value="//div[@class=&quot;css-1nha944&quot;]//div[@class=&quot;css-1qm1lh&quot;][1]//div[@class=&quot;css-9ijqjz&quot;]"/>
 			<item value=".xp__dates\-inner"/>
 			<item value="Equals"/>

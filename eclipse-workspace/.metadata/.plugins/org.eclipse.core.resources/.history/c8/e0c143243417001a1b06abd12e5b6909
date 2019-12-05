@@ -1,0 +1,45 @@
+package accommodations_attr;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+public class BookingApartmentsPage {
+
+	@FindBy (xpath = "//span[@class = \"sb-searchbox__title-text\"]")
+	private WebElement titleApart;
+	
+	@FindBy (xpath = "//div[@style][2]//li[1]//a[contains(@class, \"bui-button\")]")
+	private WebElement bookApart;
+	
+	@FindBy (xpath = "//div[@style][2]//li[1]//a[contains(@class, \"bui-card__title\")]")
+	private WebElement nameApart;
+	
+	private String apartName;
+	
+	private final String apartHeader;
+	
+	public BookingApartmentsPage() {
+		this.apartHeader = "";
+	}
+	
+	public BookingApartmentsPage(String apartHeader) {
+		this.apartHeader = apartHeader;
+	}
+
+	@FindBy (xpath = "//span[@class = \"sb-searchbox__title-text\"]")
+	private WebElement ApartHeader;
+	
+	public BookingBookApartmentPage openBookApartmentPage(WebDriver driver)
+	{
+		Assert.assertTrue((titleApart.getText()).contains(apartHeader), "The name of title is not correct!");
+		
+		apartName = nameApart.getText();
+		
+		bookApart.click();
+		
+		return new BookingBookApartmentPage(apartName);
+	}
+	
+}

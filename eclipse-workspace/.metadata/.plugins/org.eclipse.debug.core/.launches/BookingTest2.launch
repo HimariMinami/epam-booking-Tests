@@ -5,10 +5,10 @@
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="test_booking"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
     <mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS">
-        <mapEntry key="accommodations.BookingTest2" value="startBrowser;addImplicitly;AccomodationRoom;stopBrowser"/>
+        <mapEntry key="accommodations_attr.BookingTest2" value="startBrowser;CheckAccomodationRoom;addImplicitly;stopBrowser"/>
     </mapAttribute>
     <listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
-        <listEntry value="accommodations.BookingTest2"/>
+        <listEntry value="accommodations_attr.BookingTest2"/>
     </listAttribute>
     <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
     <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>

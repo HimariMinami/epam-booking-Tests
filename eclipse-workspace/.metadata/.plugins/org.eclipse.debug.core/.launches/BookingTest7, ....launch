@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="test_booking"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+    <mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS">
+        <mapEntry key="accommodations_attr.BookingAccomodationPage" value="roomNumIsCorrect;BookingAccomodationPage;BookingAccomodationPage;accomodationSelectRoom"/>
+        <mapEntry key="accommodations_attr.BookingAccomodationsPage" value="accomodationCity;NumParamIsCorrect;accomodationLateReserv;accomodationDescription;accomodationDescription1;accomodationWorkPrPrice;changeWindow;cityNumIsCorrect"/>
+        <mapEntry key="accommodations_attr.BookingActivityPage" value="BookingActivityPage;assertActivityNamtCost;BookingActivityPage"/>
+        <mapEntry key="accommodations_attr.BookingApartmentsPage" value="BookingApartmentsPage;changeWindow;BookingApartmentsPage;openBookApartmentPage"/>
+        <mapEntry key="accommodations_attr.BookingBookApartmentPage" value="BookingBookApartmentPage;openApartmentDescriptionPage;BookingBookApartmentPage"/>
+        <mapEntry key="accommodations_attr.BookingDestinationAllActivitiesPage" value="assertActivitiesCity;ParamIsCorrect;activityDescription"/>
+        <mapEntry key="accommodations_attr.BookingMainPage" value="openAccomodationsPageFilter;changeWindow;openApartmentsPage"/>
+        <mapEntry key="accommodations_attr.BookingTest1" value="stopBrowser;addImplicitly;startBrowser;FilterCity"/>
+        <mapEntry key="accommodations_attr.BookingTest2" value="startBrowser;stopBrowser;CheckAccomodationRoom;addImplicitly"/>
+        <mapEntry key="accommodations_attr.BookingTest3" value="startBrowser;addImplicitly;WorkCheckBoxProfitPriceLabel;stopBrowser"/>
+        <mapEntry key="accommodations_attr.BookingTest4" value="addImplicitly;startBrowser;LateReservation;stopBrowser"/>
+        <mapEntry key="accommodations_attr.BookingTest5" value="NumberActivities;stopBrowser;addImplicitly;startBrowser"/>
+        <mapEntry key="accommodations_attr.BookingTest6" value="startBrowser;stopBrowser;addImplicitly;CostActivities"/>
+        <mapEntry key="accommodations_attr.BookingTest7" value="startBrowser;addImplicitly;checkApartmentsPage;stopBrowser"/>
+        <mapEntry key="accommodations_attr.BookingToursActivitiesDestinationPage" value="BookingToursActivitiesDestinationPage;BookingToursActivitiesDestinationPage;AllActivities"/>
+        <mapEntry key="accommodations_attr.BookingToursActivitiesPage" value="ToursActivitiesDestination"/>
+    </mapAttribute>
+    <listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+        <listEntry value="accommodations_attr.BookingActivityPage"/>
+        <listEntry value="accommodations_attr.BookingMainPage"/>
+        <listEntry value="accommodations_attr.BookingDestinationAllActivitiesPage"/>
+        <listEntry value="accommodations_attr.BookingAccomodationPage"/>
+        <listEntry value="accommodations_attr.BookingBookApartmentPage"/>
+        <listEntry value="accommodations_attr.BookingApartmentsPage"/>
+        <listEntry value="accommodations_attr.BookingToursActivitiesPage"/>
+        <listEntry value="accommodations_attr.BookingTest5"/>
+        <listEntry value="accommodations_attr.BookingAccomodationsPage"/>
+        <listEntry value="accommodations_attr.BookingTest4"/>
+        <listEntry value="accommodations_attr.BookingTest7"/>
+        <listEntry value="accommodations_attr.BookingTest6"/>
+        <listEntry value="accommodations_attr.BookingTest1"/>
+        <listEntry value="accommodations_attr.BookingTest3"/>
+        <listEntry value="accommodations_attr.BookingTest2"/>
+        <listEntry value="accommodations_attr.BookingToursActivitiesDestinationPage"/>
+    </listAttribute>
+    <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+    <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+    <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+    <intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>
