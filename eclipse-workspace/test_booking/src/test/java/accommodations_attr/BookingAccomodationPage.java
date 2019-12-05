@@ -14,7 +14,7 @@ public class BookingAccomodationPage {
 	@FindBy (xpath  = "//table[@id = \"hprt-table\"]//tbody/tr[1]/td[5]//select")
 	private WebElement selectRoomCmbbox;
 	
-	@FindBy (xpath = "//h2[@class = \"hp__hotel-name\"]")
+	@FindBy (id = "hp_hotel_name")
 	private WebElement hotelName;
 	
 	private static final String ROOM_CMBBOX_NUM = "//table[@id = \"hprt-table\"]//tbody/tr[1]/td[5]//select/option";

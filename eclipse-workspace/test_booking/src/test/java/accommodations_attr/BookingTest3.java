@@ -32,9 +32,10 @@ public class BookingTest3 {
 	}
 	
 	@Test(description = "Найти как миниммум 2 отеля с выгодным предложением по работе в Вильнюсе на неделю для 1 человека")
-	public void testWorkCheckBoxProfitPriceLabel()
+	public void WorkCheckBoxProfitPriceLabel()
 	{
 		// Найти с пометкой путешествие по работе как минимум два отеля в Вильнюсе на неделю с 23 по 29 декабря с надписью "выгодный вариант".
+		
 		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter(DESTINATION_3, 1, 0, 1, true, 7);
 		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationWorkPrPrice(driver, DESTINATION_3, 2);		
 	}

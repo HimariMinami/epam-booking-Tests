@@ -32,11 +32,12 @@ public class BookingTest2 {
 	}
 	
 	@Test(description = "Ќайти как минимум 5 вариантов проживани€ с 3 свободными номерами в  лайпеде на неделю на 4 взрослых и ребенка.")
-	public void AccomodationRoom() throws InterruptedException
+	public void CheckAccomodationRoom() throws InterruptedException
 	{
 		// Ќайти как минимум 5 вариантов проживани€ с 3 свободными номерами на неделю с 23 по 29 декабр€ в  лайпеде,
 		// на четверых взрослых и ребенка 12 лет.
 		// ¬ыбрать первое место из списка и проверить достоверность информации про 3 свободных номера.
+		
 		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter(DESTINATION_2, 4, 1, 3, false, 7);
 		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationDescription(driver, DESTINATION_2, 5);
 		PageFactory.initElements(driver, BookingAccomodationPage.class).accomodationSelectRoom(driver, 3);

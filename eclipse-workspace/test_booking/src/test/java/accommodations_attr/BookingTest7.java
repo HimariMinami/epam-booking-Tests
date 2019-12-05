@@ -30,13 +30,20 @@ public class BookingTest7 {
 		driver.manage().window().maximize();
 	}
 	
-	@Test(description = "")
-	public void abc4() throws InterruptedException
+	@Test(description = "Проверка вкладки с апартаментами и возможности его забронировать")
+	public void checkApartmentsPage() throws InterruptedException
 	{
-		//
+		// На главной странице нажать на картинку с видом проживания "Апартаменты".
+		// В новой открывшейся вкладке проверяем что открылась вкладка с апартаментами.
+		// Выбрать первые предложенные апартамены и нажать кнопку "Забронировать апартаменты".
+		// В новой вкладке проверить что открылось описание верных апартаментов.
+		// Выбрать даты проживания с 23 по 29 декабря для 2 человек, 1 номер.
+		// На новой вкладке сравнить что есть выбранный отель и выбрать его.
+		// На новой вкладке проверить название отеля и проверить что свободна как минимум 1 комната.
 		
-		PageFactory.initElements(driver, BookingMainPage.class).openApartmentsPage();
-		PageFactory.initElements(driver, BookingApartmentsPage.class).openBookApartmentPage();
+		
+		PageFactory.initElements(driver, BookingMainPage.class).openApartmentsPage(driver);
+		PageFactory.initElements(driver, BookingApartmentsPage.class).openBookApartmentPage(driver);
 		PageFactory.initElements(driver, BookingBookApartmentPage.class).openApartmentDescriptionPage(driver);
 		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationDescription1(driver);
 		PageFactory.initElements(driver, BookingAccomodationPage.class).accomodationSelectRoom(driver, 1);

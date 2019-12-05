@@ -1,5 +1,9 @@
 package accommodations_attr;
 
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -107,11 +111,32 @@ public class BookingMainPage {
 		return new BookingAccomodationsPage();
 	}
 	
-	public BookingApartmentsPage openApartmentsPage()
+	public BookingApartmentsPage openApartmentsPage(WebDriver driver) throws InterruptedException
 	{
 		apartHeader = apartmentsHeader.getText();
 		apartmentsLink.click();
 		
+		changeWindow(driver);
+		
 		return new BookingApartmentsPage(apartHeader);
+	}
+	
+	public void changeWindow(WebDriver driver) throws InterruptedException
+	{
+		Set<String> windows = driver.getWindowHandles();
+	    Iterator<String> itr = windows.iterator();
+	    
+	    //patName will provide you parent window
+	    String patName = itr.next();
+	    //System.out.println("parentWindow Handle"+patName);
+
+	    //chldName will provide you child window
+	    String chldName = itr.next();
+	    //System.out.println("childWindow Handle"+chldName);
+
+	    //Switch to child window
+	    driver.switchTo().window(chldName);
+		
+        Thread.sleep(5000);
 	}
 }

@@ -40,7 +40,7 @@ public class BookingAccomodationsPage {
 		Assert.assertTrue(cityNumIsCorrect(driver, place, num), "The number of accomodation for the first city is not correct!");
 		accomName = accomodationName.getText();
 		firstPlaceSelectRoomBtn.click();
-		changeWindow(driver);
+		changeWindow(driver, 1);
 		
 		return new BookingAccomodationPage(accomName);
 	}
@@ -48,8 +48,10 @@ public class BookingAccomodationsPage {
 	public BookingAccomodationPage accomodationDescription1(WebDriver driver) throws InterruptedException
 	{
 		accomName = accomodationName.getText();
+		
 		firstPlaceSelectRoomBtn.click();
-		changeWindow(driver);
+		Thread.sleep(2000);
+		changeWindow(driver, 2);
 		
 		return new BookingAccomodationPage(accomName);
 	}
@@ -118,7 +120,7 @@ public class BookingAccomodationsPage {
 		}
 	}
 	
-	public void changeWindow(WebDriver driver) throws InterruptedException
+	public void changeWindow(WebDriver driver, int numTest) throws InterruptedException
 	{
 		Set<String> windows = driver.getWindowHandles();
 	    Iterator<String> itr = windows.iterator();
@@ -128,11 +130,18 @@ public class BookingAccomodationsPage {
 	    //System.out.println("parentWindow Handle"+patName);
 
 	    //chldName will provide you child window
-	    String chldName = itr.next();
+	    String chldName1 = itr.next();
 	    //System.out.println("childWindow Handle"+chldName);
-
+	    if(numTest == 2) {
+	    String chldName2 = itr.next();
+	    String chldName3 = itr.next();
 	    //Switch to child window
-	    driver.switchTo().window(chldName);
+	    driver.switchTo().window(chldName3);
+	    }
+	    else
+	    {
+	    	driver.switchTo().window(chldName1);
+	    }
 		
         Thread.sleep(5000);
 	}

@@ -36,10 +36,9 @@ public class BookingTest1 {
 	{
 		// Найти места проживания на неделю с 23 по 29 декабря в Литве для 1 человека, проверить верное отображение заголовка.
 		// Отфильтровать поиск для города Вильнюс. Проверить что отобразилось как минимум 10 вариантов проживания.
+		
 		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter(DESTINATION_1, 1, 0, 1, false, 7);
 		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationCity(driver, DESTINATION_1, 10);
-		
-		//Assert.assertTrue(PageFactory.initElements(driver, BookingAccomodationsPage.class).cityNumIsCorrect(driver), "The number of city is not correct!");
 	}
 	
 	@AfterClass(description = "Stop Browser")

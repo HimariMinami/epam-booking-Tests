@@ -35,6 +35,7 @@ public class BookingTest4 {
 	public void LateReservation()
 	{
 		// Найти с 31 декабря по 1 января на двоих 1 и более вариантов проживания с надписью "Вы не успели!" 
+		
 		PageFactory.initElements(driver, BookingMainPage.class).openAccomodationsPageFilter(DESTINATION_4, 1, 0, 1, false, 2);
 		PageFactory.initElements(driver, BookingAccomodationsPage.class).accomodationLateReserv(driver, 2);
 	}
